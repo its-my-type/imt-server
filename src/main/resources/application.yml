@@ -1,7 +1,4 @@
 
 spring:
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      database: tutorial
+  datasource:
+    url: jdbc:h2:mem:imt;mode=MYSQL;IFEXISTS=FALSE;

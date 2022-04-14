@@ -1,4 +1,4 @@
-package com.example.imt.image
+package com.example.imt.image.domain
 
 import com.example.imt.celebrity.domain.Celebrity
 import javax.persistence.Column

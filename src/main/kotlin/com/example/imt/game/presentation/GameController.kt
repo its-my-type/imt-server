@@ -1,6 +1,8 @@
 package com.example.imt.game.presentation
 
+import com.example.imt.celebrity.domain.Gender
 import com.example.imt.common.API_URI
+import com.example.imt.game.application.GameService
 import com.example.imt.game.presentation.GameController.Companion.GAME_URI
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.GetMapping
@@ -11,32 +13,29 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping(GAME_URI)
-class GameController {
+class GameController(
+    private val gameService: GameService,
+) {
 
     @GetMapping(value = ["/initial-images"], params = ["gender"])
     @ResponseStatus(value = HttpStatus.OK)
-    fun startGame(
-        @RequestParam gender: String,
-    ) {
-        println(gender)
-    }
+    fun start(@RequestParam gender: Gender) = gameService.getStartResult(gender)
 
     @GetMapping(params = ["stage", "gender"])
     @ResponseStatus(value = HttpStatus.OK)
-    fun progressStage(
+    fun getStageResult(
         @RequestParam stage: Long,
-        @RequestParam gender: String,
+        @RequestParam gender: Gender,
     ) {
-        println(stage)
-        println(gender)
+        TODO()
     }
 
     @GetMapping(value = ["/results"], params = ["gender"])
     @ResponseStatus(value = HttpStatus.OK)
-    fun getResult(
-        @RequestParam gender: String,
+    fun getGameResult(
+        @RequestParam gender: Gender,
     ) {
-        println(gender)
+        TODO()
     }
 
     companion object {

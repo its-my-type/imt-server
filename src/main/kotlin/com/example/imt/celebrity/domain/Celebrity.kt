@@ -11,8 +11,8 @@ class Celebrity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "celebrity_id")
-    val id: String,
+    val id: Long,
     val name: String,
-    val gender: String,
+    val gender: Gender,
 ) {
 }

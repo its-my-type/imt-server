@@ -17,12 +17,14 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("org.springframework.boot:spring-boot-starter-log4j2")
+//	implementation("org.springframework.boot:spring-boot-starter-log4j2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	runtimeOnly("com.h2database:h2")
 }
 
 tasks.withType<KotlinCompile> {

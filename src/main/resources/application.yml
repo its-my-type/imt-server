@@ -1,7 +1,24 @@
+server:
+  port: 8080
 
 spring:
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      database: tutorial
+  profiles:
+    active: default
+
+  datasource:
+    url: jdbc:h2:mem:imt;mode=MYSQL;IFEXISTS=FALSE;
+    username: admin
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+  h2:
+    console:
+      enabled: true
+
+  sql:
+    init:
+      schema-locations: classpath*:sql/schema.sql
+      data-locations: classpath*:sql/data.sql

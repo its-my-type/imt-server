@@ -1,6 +1,6 @@
 package com.example.imt.celebrity.domain;
 
-public enum Gender {
+enum class Gender {
     MALE,
     FEMALE,
 }

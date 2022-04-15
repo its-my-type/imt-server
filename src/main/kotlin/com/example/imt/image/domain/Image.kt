@@ -6,8 +6,10 @@ import javax.persistence.Entity
 import javax.persistence.Id
 import javax.persistence.JoinColumn
 import javax.persistence.ManyToOne
+import javax.persistence.Table
 
 @Entity
+@Table(name = "images")
 class Image(
     @Id
     @Column(name = "image_name")

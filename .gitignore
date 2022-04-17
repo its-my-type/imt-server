@@ -3,7 +3,9 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
-./nohup.out
+
+# output from nohup
+nohup.out
 
 ### STS ###
 .apt_generated

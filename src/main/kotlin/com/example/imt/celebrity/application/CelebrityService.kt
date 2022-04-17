@@ -11,6 +11,8 @@ class CelebrityService(
 ) {
     fun getRandomCelebritiesOf(gender: Gender, imageCount: Int): List<Celebrity> =
         celebrityRepository.findAllByGender(gender)
-            .shuffled()
-            .subList(0, imageCount)
+            .let {
+                if (it.size < imageCount) return emptyList()
+                else it.shuffled().subList(0, imageCount)
+            }
 }

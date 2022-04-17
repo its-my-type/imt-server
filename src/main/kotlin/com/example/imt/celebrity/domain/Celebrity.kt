@@ -15,9 +15,9 @@ class Celebrity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "celebrity_id")
-    val id: Long,
-    val name: String,
+    private val id: Long,
+    private val name: String,
     @Enumerated(value = EnumType.STRING)
-    val gender: Gender,
+    private val gender: Gender,
 ) {
 }

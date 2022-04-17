@@ -11,6 +11,8 @@ class CelebrityService(
 ) {
     fun getRandomCelebritiesOf(gender: Gender, imageCount: Int): List<Celebrity> =
         celebrityRepository.findAllByGender(gender)
-            .shuffled()
-            .subList(0, imageCount)
+            .let {
+                val toIndex = if (it.size < imageCount) it.size else imageCount
+                it.shuffled().subList(0, toIndex)
+            }
 }

@@ -1,12 +1,14 @@
 
-create table if not exists celebrities (
-    celebrity_id integer not null primary key auto_increment,
-    name varchar(20),
-    gender varchar(20)
+CREATE TABLE IF NOT EXISTS celebrities (
+    celebrity_id INTEGER NOT NULL PRIMARY KEY auto_increment,
+    name VARCHAR (40),
+    gender CHAR (6),
+    birth INTEGER (6)
 );
 
-create table if not exists images (
-    image_name varchar(30) not null primary key,
-    celebrity_id integer,
-    foreign key(celebrity_id) references celebrities(celebrity_id) on delete set null
-)
+CREATE TABLE IF NOT EXISTS images (
+    image_name VARCHAR (30) NOT NULL PRIMARY KEY,
+    feature text NOT NULL,
+    celebrity_id INTEGER,
+    FOREIGN KEY (celebrity_id) REFERENCES celebrities(celebrity_id) ON DELETE SET NULL
+);

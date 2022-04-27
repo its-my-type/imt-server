@@ -6,6 +6,7 @@ import javax.persistence.Entity
 import javax.persistence.Id
 import javax.persistence.JoinColumn
 import javax.persistence.ManyToOne
+import javax.persistence.OneToOne
 import javax.persistence.Table
 
 @Entity
@@ -15,8 +16,12 @@ class Image(
     @Column(name = "image_name")
     val name: String,
 
-    @ManyToOne
+    @Column
+    val feature: String,
+
+    @OneToOne
     @JoinColumn(name = "celebrity_id")
     val celebrity: Celebrity
 ) {
+    override fun toString() = "Image(name=$name, feature=$feature, celebrity=$celebrity"
 }

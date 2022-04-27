@@ -16,8 +16,16 @@ class Celebrity(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "celebrity_id")
     private val id: Long,
+
+    @Column
     private val name: String,
+
     @Enumerated(value = EnumType.STRING)
+    @Column
     private val gender: Gender,
+
+    @Column
+    private val birth: Int,
 ) {
+    override fun toString() = "Celebrity(id=$id, name=$name, gender=$gender, birth=$birth"
 }

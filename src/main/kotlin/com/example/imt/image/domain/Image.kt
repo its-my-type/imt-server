@@ -17,7 +17,7 @@ class Image(
     val name: String,
 
     @Column
-    val feature: String,
+    private val feature: String,
 
     @OneToOne
     @JoinColumn(name = "celebrity_id")

@@ -3,6 +3,7 @@ package com.example.imt.image.application
 import com.example.imt.celebrity.domain.Celebrity
 import com.example.imt.celebrity.domain.Gender
 import com.example.imt.image.domain.Image
+import com.example.imt.image.domain.Images
 import com.example.imt.image.infrastructure.ImageRepository
 import org.springframework.stereotype.Service
 
@@ -16,5 +17,5 @@ class ImageService(
             .shuffled()
             .distinctBy { it.celebrity }
 
-    fun getImagesByGender(gender: Gender): List<Image> = imageRepository.findAllByCelebrityGender(gender)
+    fun getImagesByGender(gender: Gender): Images = Images.of(imageRepository.findAllByCelebrityGender(gender))
 }

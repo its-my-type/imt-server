@@ -6,6 +6,7 @@ plugins {
 	kotlin("jvm") version "1.6.10"
 	kotlin("plugin.spring") version "1.6.10"
 	kotlin("plugin.jpa") version "1.6.10"
+	kotlin("kapt") version "1.6.10"
 }
 
 group = "com.example"
@@ -21,10 +22,17 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.springframework.boot:spring-boot-starter-web")
-//	implementation("org.springframework.boot:spring-boot-starter-log4j2")
 	implementation("io.springfox:springfox-boot-starter:3.0.0")
-//	implementation("io.springfox:springfox-swagger-ui:3.0.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	api("com.querydsl:querydsl-jpa")
+	kapt(group = "com.querydsl", name = "querydsl-apt", classifier = "jpa")
+
+	sourceSets.main {
+		withConvention(org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet::class) {
+			kotlin.srcDir("$buildDir/generated/source/kapt/main")
+		}
+	}
 
 	runtimeOnly("com.h2database:h2")
 }

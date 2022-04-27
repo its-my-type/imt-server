@@ -18,4 +18,6 @@ class ImageService(
             .distinctBy { it.celebrity }
 
     fun getImagesByGender(gender: Gender): Images = Images.of(imageRepository.findAllByCelebrityGender(gender))
+
+    fun getImagesByNames(names: List<String>): Images = Images.of(imageRepository.findAllByNameIn(names))
 }

@@ -16,6 +16,7 @@ class GameService(
             .map(StartResponse::toDto)
 
     fun getStageResult(gender: Gender, stageRequest: StageRequest) {
-        TODO()
+        val images = imageService.getImagesByNames(stageRequest.names)
+        // TODO() - 위 예시와 같이 요청받은 id에 대한 images 불러올 수 있음.
     }
 }

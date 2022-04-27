@@ -6,4 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 
 interface ImageRepository : JpaRepository<Image, String>, ImageRepositoryCustom {
     fun findAllByCelebrityIn(celebrities: List<Celebrity>): List<Image>
+
+    fun findAllByNameIn(names: List<String>): List<Image>
 }

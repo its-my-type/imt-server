@@ -1,3 +1,9 @@
 
 ### 테스트 시작 API
 GET {{host}}/imt-v1/games/initial-images?gender=MALE
+
+### 스테이지 API
+POST {{host}}/imt-v1/games?gender=MALE
+Content-Type: application/json
+
+< ./stage.json
